@@ -74,6 +74,22 @@ spec:
       mountPath: /var/lib/postgresql/data
       subPath: postgres
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi-deployment
+  labels:
+    app: strapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: strapi
+  template:
+    metadata:
+      labels:
+        app: strapi
+---
 apiVersion: v1
 kind: Service
 metadata:
