@@ -36,7 +36,7 @@ spec:
   template:
     metadata:
       labels:
-        app: strapiapp
+        app: strapi
     spec:
       volumes:
       - name: strapi-vl
