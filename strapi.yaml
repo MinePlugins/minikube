@@ -12,6 +12,10 @@ spec:
       labels:
         app: strapi
     spec:
+      volumes:
+      - name: strapi
+        hostPath:
+        path: /home/quentin/strapi
       containers:
       - name: strapi
         image: strapi/strapi:latest
