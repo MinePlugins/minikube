@@ -24,6 +24,30 @@ spec:
   hostPath:
     path: "/mnt/data/postgres"
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: strapi-vl
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-vl
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
