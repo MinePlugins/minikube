@@ -43,9 +43,13 @@ spec:
       mountPath: /srv/app
   - name: postgres
     image: postgres:latest
-    envFrom:
-    - configMapRef:
-      name: postgres-config
+    env:
+    - name: POSTGRES_DB
+      value: "strapi"
+    - name: POSTGRES_USER
+      value: "dreamteam"
+    - name: POSTGRES_PASSWORD
+      value: "dreamteampasswd"
     ports:
     - containerPort: 5432
       name: postgredb
