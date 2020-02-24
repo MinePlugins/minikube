@@ -1,11 +1,23 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: strapi-vl
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: strapi
 spec:
-  volumes:
-  - name: strapi
-    emptyDir: {}
   containers:
   - name: strapi
     image: strapi/strapi:latest
@@ -25,7 +37,7 @@ spec:
     ports:
     - containerPort: 1337
     volumeMounts:
-    - name: strapi
+    - name: strapi-vl
       mountPath: /srv/app
 ---
 apiVersion: v1
