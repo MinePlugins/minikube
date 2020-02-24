@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: strapi-postgres
+  name: strapi
 spec:
   volumes:
   - name: strapi-vl
