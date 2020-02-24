@@ -21,7 +21,7 @@ spec:
   volumes:
   - name: strapi-vl
     persistentVolumeClaim:
-    claimName: strapi-vl
+      claimName: strapi-vl
   containers:
   - name: strapi
     image: strapi/strapi:latest
