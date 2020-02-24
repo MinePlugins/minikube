@@ -24,8 +24,8 @@ spec:
   hostPath:
     path: "/mnt/data/postgres"
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: strapi
 spec:
@@ -73,22 +73,6 @@ spec:
     - name: postgres-vl
       mountPath: /var/lib/postgresql/data
       subPath: postgres
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: strapi-deployment
-  labels:
-    app: strapi
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: strapi
-  template:
-    metadata:
-      labels:
-        app: strapi
 ---
 apiVersion: v1
 kind: Service
