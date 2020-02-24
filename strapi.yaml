@@ -71,7 +71,7 @@ spec:
           claimName: postgres-vl
       containers:
       - name: strapi
-        image: strapi/strapi:3.0.0-beta.18.5-node12
+        image: dreamteamestiam/strapi
         env:
         - name: DATABASE_CLIENT
           value: "postgres"
