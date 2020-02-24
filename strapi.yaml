@@ -3,39 +3,30 @@ kind: Pod
 metadata:
   name: strapi
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: strapi
-  template:
-    metadata:
-      labels:
-        app: strapi
-    spec:
-      volumes:
-      - name: strapi
-        emptyDir: {}
-      containers:
-      - name: strapi
-        image: strapi/strapi:latest
-        env:
-        - name: DATABASE_CLIENT
-          value: "postgres"
-        - name: DATABASE_HOST
-          value: "postgres"
-        - name: DATABASE_PORT
-          value: "5432"
-        - name: DATABASE_NAME
-          value: "strapi"
-        - name: DATABASE_USERNAME
-          value: "dreamteam"
-        - name: DATABASE_PASSWORD
-          value: "dreamteampasswd"
-        ports:
-        - containerPort: 1337
-        volumeMounts:
-        - name: strapi
-          mountPath: /srv/app
+  volumes:
+  - name: strapi
+    emptyDir: {}
+  containers:
+  - name: strapi
+    image: strapi/strapi:latest
+    env:
+    - name: DATABASE_CLIENT
+      value: "postgres"
+    - name: DATABASE_HOST
+      value: "postgres"
+    - name: DATABASE_PORT
+      value: "5432"
+    - name: DATABASE_NAME
+      value: "strapi"
+    - name: DATABASE_USERNAME
+      value: "dreamteam"
+    - name: DATABASE_PASSWORD
+      value: "dreamteampasswd"
+    ports:
+    - containerPort: 1337
+    volumeMounts:
+    - name: strapi
+      mountPath: /srv/app
 ---
 apiVersion: v1
 kind: Service
