@@ -8,7 +8,7 @@ spec:
     emptyDir: {}
   containers:
   - name: strapi
-    image: strapi/strapi:latest
+    image: strapi/base:latest
     env:
     - name: DATABASE_CLIENT
       value: "postgres"
