@@ -66,7 +66,27 @@ spec:
         volumeMounts:
         - name: strapi-vl
           mountPath: /srv/app
-        - name: postgres
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      volumes:
+      - name: postgres-vl
+        persistentVolumeClaim:
+          claimName: postgres-vl
+      containers:         
+      - name: postgres
         image: postgres:latest
         env:
         - name: POSTGRES_DB
