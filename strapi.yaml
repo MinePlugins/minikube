@@ -19,9 +19,9 @@ metadata:
   name: strapi-postgres
 spec:
   volumes:
-    - name: strapi-vl
-      persistentVolumeClaim:
-        claimName: strapi-vl
+  - name: strapi-vl
+    persistentVolumeClaim:
+    claimName: strapi-vl
   containers:
   - name: strapi
     image: strapi/strapi:latest
