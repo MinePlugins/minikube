@@ -33,6 +33,9 @@ spec:
   - name: strapi-vl
     persistentVolumeClaim:
       claimName: strapi-vl
+  - name: postgres-vl
+    persistentVolumeClaim:
+      claimName: postgres-vl
   containers:
   - name: strapi
     image: strapi/strapi:latest
