@@ -30,6 +30,19 @@ spec:
           value: "dreamteampasswd"
         ports:
         - containerPort: 1337
+        volumeMounts:
+        - name: strapi
+          mountPath: /srv/app
+          subPath: strapi
+  volumeClaimTemplates:
+  - metadata:
+      name: strapi
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: Local
+      resources:
+        requests:
+          storage: 3Gi
 ---
 apiVersion: v1
 kind: Service
