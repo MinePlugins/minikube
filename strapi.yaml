@@ -14,8 +14,7 @@ spec:
     spec:
       volumes:
       - name: strapi
-        hostPath:
-        path: /home/quentin/strapi
+        emptyDir: {}
       containers:
       - name: strapi
         image: strapi/strapi:latest
@@ -37,7 +36,6 @@ spec:
         volumeMounts:
         - name: strapi
           mountPath: /srv/app
-          subPath: strapi
 ---
 apiVersion: v1
 kind: Service
