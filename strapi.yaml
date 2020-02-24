@@ -9,7 +9,20 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data"
+    path: "/mnt/data/strapi"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-vl
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/postgres"
 ---
 apiVersion: v1
 kind: Pod
@@ -52,9 +65,9 @@ spec:
       value: "dreamteampasswd"
     ports:
     - containerPort: 5432
-      name: postgredb
+      name: postgres
     volumeMounts:
-    - name: postgredb
+    - name: postgres-vl
       mountPath: /var/lib/postgresql/data
       subPath: postgres
 ---
