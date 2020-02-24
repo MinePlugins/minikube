@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: strapi
 spec:
@@ -34,15 +34,6 @@ spec:
         - name: strapi
           mountPath: /srv/app
           subPath: strapi
-  volumeClaimTemplates:
-  - metadata:
-      name: strapi
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: Local
-      resources:
-        requests:
-          storage: 3Gi
 ---
 apiVersion: v1
 kind: Service
