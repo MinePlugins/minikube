@@ -101,8 +101,6 @@ spec:
           value: "dreamteam"
         - name: DATABASE_PASSWORD
           value: "dreamteampasswd"
-        - name: EXTRA_ARGS
-          value: "quickstart"
         ports:
         - containerPort: 1337
         volumeMounts:
