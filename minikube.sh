@@ -23,3 +23,10 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 cp minikube /usr/local/bin && rm minikube
 
 minikube start --vm-driver=none
+
+git clone https://github.com/MinePlugins/minikube.git .
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+
+cd minikube
+
+kubectl apply -f dashboard-adminuser.yaml
