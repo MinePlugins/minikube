@@ -70,6 +70,22 @@ spec:
         persistentVolumeClaim:
           claimName: postgres-vl
       containers:
+      - name: postgres
+        image: postgres:latest
+        env:
+        - name: POSTGRES_DB
+          value: "strapi"
+        - name: POSTGRES_USER
+          value: "dreamteam"
+        - name: POSTGRES_PASSWORD
+          value: "dreamteampasswd"
+        ports:
+        - containerPort: 5432
+          name: postgres
+        volumeMounts:
+        - name: postgres-vl
+          mountPath: /var/lib/postgresql/data
+          subPath: postgres
       - name: strapi
         image: strapi/strapi:v3.0.0-alpha.11
         env:
@@ -91,43 +107,7 @@ spec:
         - containerPort: 1337
         volumeMounts:
         - name: strapi-vl
-          mountPath: /srv/app
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: postgres-deployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      volumes:
-      - name: postgres-vl
-        persistentVolumeClaim:
-          claimName: postgres-vl
-      containers:         
-      - name: postgres
-        image: postgres:latest
-        env:
-        - name: POSTGRES_DB
-          value: "strapi"
-        - name: POSTGRES_USER
-          value: "dreamteam"
-        - name: POSTGRES_PASSWORD
-          value: "dreamteampasswd"
-        ports:
-        - containerPort: 5432
-          name: postgres
-        volumeMounts:
-        - name: postgres-vl
-          mountPath: /var/lib/postgresql/data
-          subPath: postgres
+          mountPath: /srv/app 
 ---
 apiVersion: v1
 kind: Service
