@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: strapi
+  name: strapi-postgres
 spec:
   volumes:
     - name: strapi-vl
@@ -43,6 +43,18 @@ spec:
     volumeMounts:
     - name: strapi-vl
       mountPath: /srv/app
+  - name: postgres
+    image: postgres:latest
+    envFrom:
+    - configMapRef:
+      name: postgres-config
+    ports:
+    - containerPort: 5432
+      name: postgredb
+    volumeMounts:
+    - name: postgredb
+      mountPath: /var/lib/postgresql/data
+      subPath: postgres
 ---
 apiVersion: v1
 kind: Service
