@@ -17,16 +17,16 @@ spec:
         image: strapi/strapi:latest
         env:
         - name: DATABASE_CLIENT
-         value: "postgres"
+          value: "postgres"
         - name: DATABASE_HOST
-         value: "postgres"
+          value: "postgres"
         - name: DATABASE_PORT
-         value: "5432"
+          value: "5432"
         - name: DATABASE_NAME
-         value: "strapi"
+          value: "strapi"
         - name: DATABASE_USERNAME
-         value: "dreamteam"
+          value: "dreamteam"
         - name: DATABASE_PASSWORD
-         value: "dreamteampasswd"
+          value: "dreamteampasswd"
         ports:
         - containerPort: 1337
