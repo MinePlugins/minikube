@@ -5,6 +5,8 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+export CHANGE_MINIKUBE_NONE_USER=true
+
 apt-get update -y
 apt-get install -y apt-transport-https docker.io
 apt-get upgrade -y
