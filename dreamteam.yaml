@@ -125,17 +125,17 @@ spec:
   externalTrafficPolicy: Cluster
   ports:
   - name: port-1
-    nodePort: 31688
+    nodePort: 5432
     port: 5432
     protocol: TCP
     targetPort: 5432
   - name: port-2
-    nodePort: 31699
+    nodePort: 1337
     port: 1337
     protocol: TCP
     targetPort: 1337
   - name: port-3
-    nodePort: 31132
+    nodePort: 1337
     port: 3000
     protocol: TCP
     targetPort: 3000
