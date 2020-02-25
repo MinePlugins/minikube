@@ -81,6 +81,8 @@ spec:
           value: "dreamteam"
         - name: POSTGRES_PASSWORD
           value: "dreamteampasswd"
+        - name: VERBOSITY
+          value: "verbose"
         - name: PGDATA
           value: "/var/lib/postgresql/data"  
         ports:
