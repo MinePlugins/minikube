@@ -20,7 +20,7 @@ spec:
   capacity:
     storage: 5Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: "/mnt/data/postgres"
 ---
@@ -43,7 +43,7 @@ metadata:
 spec:
   storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 3Gi
@@ -85,7 +85,6 @@ spec:
         volumeMounts:
         - name: postgres-vl
           mountPath: /var/lib/postgresql/data
-          subPath: postgres
       - name: strapi
         image: dreamteamestiam/backend:latest
         env:
