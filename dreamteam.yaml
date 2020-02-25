@@ -124,11 +124,6 @@ metadata:
 spec:
   externalTrafficPolicy: Cluster
   ports:
-  - name: port-1
-    nodePort: 31016
-    port: 5432
-    protocol: TCP
-    targetPort: 5432
   - name: port-2
     nodePort: 31699
     port: 1337
