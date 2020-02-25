@@ -93,9 +93,9 @@ spec:
         - name: DATABASE_CLIENT
           value: "postgres"
         - name: DATABASE_HOST
-          value: "app"
+          value: "postgres.default"
         - name: DATABASE_PORT
-          value: "30001"
+          value: "5432"
         - name: DATABASE_NAME
           value: "strapi"
         - name: DATABASE_USERNAME
