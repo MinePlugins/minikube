@@ -125,7 +125,7 @@ spec:
   ports:
   - port: 3000
     protocol: TCP
-    targetPort: 3000
+    nodePort: 3000
   type: LoadBalancer
   selector:
     run: vue
@@ -140,7 +140,7 @@ spec:
   ports:
   - port: 1337
     protocol: TCP
-    targetPort: 1337
+    nodePort: 1337
   type: LoadBalancer
   selector:
     run: strapi
