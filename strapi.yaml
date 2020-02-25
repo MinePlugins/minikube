@@ -112,7 +112,7 @@ spec:
         image: dreamteamestiam/frontend:latest
         env:
         - name: API_URL
-          value: "http://strapi:1337"
+          value: "http://strapi.permafrhost.fr:32571"
         ports:
         - containerPort: 3000
 ---
