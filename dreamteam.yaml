@@ -38,9 +38,6 @@ spec:
         app: strapi
     spec:
       volumes:
-      - name: strapi-vl
-        persistentVolumeClaim:
-          claimName: strapi-vl
       - name: postgres-vl
         persistentVolumeClaim:
           claimName: postgres-vl
