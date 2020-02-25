@@ -81,6 +81,8 @@ spec:
           value: "dreamteam"
         - name: POSTGRES_PASSWORD
           value: "dreamteampasswd"
+        - name: PGDATA
+          value: "/var/lib/postgresql/data"  
         ports:
         - containerPort: 5432
           name: postgres
