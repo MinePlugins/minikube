@@ -111,7 +111,7 @@ spec:
         image: dreamteamestiam/frontend:latest
         env:
         - name: API_URL
-          value: "http://strapi.permafrhost.fr:3000"
+          value: "http://lol.permafrhost.fr:1337"
         ports:
         - containerPort: 3000
 ---
