@@ -100,7 +100,9 @@ spec:
         - name: DATABASE_USERNAME
           value: "dreamteam"
         - name: DATABASE_PASSWORD
-          value: "dreamteampasswd"
+          value: "dreamteampasswd
+        - name: NODE_ENV
+          value: "production"
         ports:
         - containerPort: 1337
         volumeMounts:
