@@ -25,7 +25,7 @@ cp minikube /usr/local/bin && rm minikube
 minikube start --vm-driver=none
 
 mkdir -p /mnt/data/postgres
-mkdir -p /mnt/data/strapi
+# mkdir -p /mnt/data/strapi
 
-kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/dreamteam.yaml
+# kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/dreamteam.yaml
 
