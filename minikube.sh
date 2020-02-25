@@ -28,3 +28,4 @@ mkdir -p /mnt/data/postgres
 mkdir -p /mnt/data/strapi
 
 kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/dreamteam.yaml
+kubectl expose deployment app-deployment --type=LoadBalancer --name=app
