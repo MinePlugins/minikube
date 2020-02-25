@@ -24,11 +24,7 @@ cp minikube /usr/local/bin && rm minikube
 
 minikube start --vm-driver=none
 
-git clone https://github.com/MinePlugins/minikube.git .
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+mkdir -p /mnt/data/postgres
+mkdir -p /mnt/data/strapi
 
-cd minikube
-
-kubectl apply -f dashboard-adminuser.yaml
-
-kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/dreamteam.yaml
