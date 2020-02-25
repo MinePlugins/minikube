@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: dp-postgres
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: strapi
+      app: postgres
   template:
     metadata:
       labels:
-        app: strapi
+        app: postgres
     spec:
       volumes:
-      - name: postgres-vl
+      - name: postgres-vlc
         persistentVolumeClaim:
-          claimName: postgres-vl
+          claimName: postgres-vlc
       containers:
-      - name: ping
-        image: dreamteamestiam/ping:latest
       - name: postgres
         image: postgres:latest
         env:
@@ -36,17 +34,33 @@ spec:
         - containerPort: 5432
           name: postgres
         volumeMounts:
-        - name: postgres-vl
+        - name: postgres-vlc
           mountPath: /var/lib/postgresql/data
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-strapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: strapi
+  template:
+    metadata:
+      labels:
+        app: strapi
+    spec:
+      containers:
       - name: strapi
         image: dreamteamestiam/backend:latest
         env:
         - name: DATABASE_CLIENT
           value: "postgres"
         - name: DATABASE_HOST
-          value: "app"
+          value: "postgres"
         - name: DATABASE_PORT
-          value: "30001"
+          value: "5432"
         - name: DATABASE_NAME
           value: "strapi"
         - name: DATABASE_USERNAME
@@ -55,10 +69,26 @@ spec:
           value: "dreamteampasswd"
         ports:
         - containerPort: 1337
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-vue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vue
+  template:
+    metadata:
+      labels:
+        app: vue
+    spec:
+      containers:
       - name: vue
         image: dreamteamestiam/frontend:latest
         env:
         - name: API_URL
-          value: "http://lol.permafrhost.fr:1337"
+          value: "http://178.32.215.77:1337"
         ports:
         - containerPort: 3000
