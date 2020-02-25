@@ -117,6 +117,20 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: vue
+  labels:
+    run: vue
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+  type: LoadBalancer
+  selector:
+    run: vue
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: strapi
   labels:
     run: strapi
@@ -124,6 +138,7 @@ spec:
   ports:
   - port: 1337
     protocol: TCP
+  type: LoadBalancer
   selector:
     run: strapi
 ---
