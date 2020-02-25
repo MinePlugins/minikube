@@ -118,39 +118,26 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: vue
-  labels:
-    run: vue
+  name: app
 spec:
+  externalTrafficPolicy: Cluster
   ports:
-  - port: 3000
+  - name: port-1
+    nodePort: 31016
+    port: 5432
     protocol: TCP
-    nodePort: 3000
-  type: LoadBalancer
-  selector:
-    run: vue
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: strapi
-  labels:
-    run: strapi
-spec:
-  ports:
-  - port: 1337
+    targetPort: 5432
+  - name: port-2
+    nodePort: 31699
+    port: 1337
     protocol: TCP
-    nodePort: 1337
+    targetPort: 1337
+  - name: port-3
+    nodePort: 31132
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: strapi
+  sessionAffinity: None
   type: LoadBalancer
-  selector:
-    run: strapi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-spec:
-  ports:
-  - port: 5432
-  selector:
-    app: postgres
