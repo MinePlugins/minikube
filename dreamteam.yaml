@@ -93,9 +93,9 @@ spec:
         - name: DATABASE_CLIENT
           value: "postgres"
         - name: DATABASE_HOST
-          value: "postgres"
+          value: "app"
         - name: DATABASE_PORT
-          value: "5432"
+          value: "30001"
         - name: DATABASE_NAME
           value: "strapi"
         - name: DATABASE_USERNAME
@@ -143,13 +143,3 @@ spec:
     app: strapi
   sessionAffinity: None
   type: LoadBalancer
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-spec:
-  ports:
-  - port: 5432
-  selector:
-    app: postgres
