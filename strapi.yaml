@@ -87,7 +87,7 @@ spec:
           mountPath: /var/lib/postgresql/data
           subPath: postgres
       - name: strapi
-        image: strapi/strapi:3.0.0-beta.17.3-node12
+        image: strapi/strapi:v3.0.0-alpha.13.1
         env:
         - name: DATABASE_CLIENT
           value: "postgres"
