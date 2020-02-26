@@ -89,6 +89,6 @@ spec:
         image: dreamteamestiam/frontend:latest
         env:
         - name: API_URL
-          value: "http://178.32.215.77:1337"
+          value: "http://178.32.215.77:30002"
         ports:
         - containerPort: 3000
