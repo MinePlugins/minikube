@@ -60,7 +60,7 @@ spec:
         - name: DATABASE_CLIENT
           value: "postgres"
         - name: DATABASE_HOST
-          value: "postgres.dreamteam-deliveroo"
+          value: "svc-postgres"
         - name: DATABASE_PORT
           value: "5432"
         - name: DATABASE_NAME
