@@ -8,20 +8,38 @@ Ces instructions vous permettront d'obtenir une copie du projet sur votre ordina
 
 ### Prerequisites
 
-
 ```
 Ubuntu Server
 Un user sudo
 ```
 
-### Installing
+### Disclaimer
+
+/!\ Attention /!\ Tous les fichier de config sont configurer pour fonctionner sur l'ip 178.32.215.77 !
+
+### Installing minikube
 
 Executer les commandes avec un utilisateur sudoer
 
 ```
-curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube.sh | sudo bash
+curl https://raw.githubusercontent.com/MinePlugins/minikube/master/install-minikube.sh | sudo bash
 ```
 
+### Installing namespaces, volumes, pods and services
+
+Executer les commandes avec un utilisateur qui à accès à ```kubectl```
+
+```
+curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-pods.sh | sudo bash
+```
+
+### Installing kubernetes dashboard
+
+Executer les commandes avec un utilisateur qui à accès à ```kubectl```
+
+```
+curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-dashboard.sh | sudo bash
+```
 
 ## Running the tests
 
@@ -41,4 +59,3 @@ ithub.com/your/project/contributors) who participated in this project.
 ## License
 
 This project is licensed under the MIT License
-

@@ -23,10 +23,3 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 cp minikube /usr/local/bin && rm minikube
 
 minikube start --vm-driver=none
-
-mkdir -p /mnt/data/postgres
-
-kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/volumes.yaml
-kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/deployments.yaml
-kubectl apply -f https://raw.githubusercontent.com/MinePlugins/minikube/master/services.yaml
-

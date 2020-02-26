@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dp-postgres
+  namespace: dreamteam-deliveroo
 spec:
   replicas: 1
   selector:
@@ -41,6 +42,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dp-strapi
+  namespace: dreamteam-deliveroo
 spec:
   replicas: 1
   selector:
@@ -74,6 +76,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dp-vue
+  namespace: dreamteam-deliveroo
 spec:
   replicas: 1
   selector:
