@@ -13,13 +13,6 @@
 # limitations under the License.
 
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: kubernetes-dashboard
-
----
-
-apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
@@ -37,11 +30,13 @@ metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
 spec:
-  ports:
-    - port: 443
+  ports:  
+    - nodePort: 30004
+      port: 443
       targetPort: 8443
   selector:
     k8s-app: kubernetes-dashboard
+  type: NodePort
 
 ---
 
@@ -156,10 +151,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: kubernetes-dashboard
+  labels:
+    k8s-app: kubernetes-dashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: kubernetes-dashboard
+  name: cluster-admin
 subjects:
   - kind: ServiceAccount
     name: kubernetes-dashboard
@@ -193,9 +190,10 @@ spec:
             - containerPort: 8443
               protocol: TCP
           args:
-            - --tls-cert-file=/tls.crt
-            - --tls-key-file=/tls.key
+            - --tls-cert-file=tls.crt
+            - --tls-key-file=tls.key
             - --namespace=kubernetes-dashboard
+            - --enable-skip-login
             # Uncomment the following line to manually specify Kubernetes API server Host
             # If not specified, Dashboard will attempt to auto discover the API server and connect
             # to it. Uncomment only if the default does not work.
