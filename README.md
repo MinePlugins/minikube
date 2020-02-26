@@ -30,7 +30,7 @@ curl https://raw.githubusercontent.com/MinePlugins/minikube/master/install-minik
 Executer les commandes avec un utilisateur qui à accès à ```kubectl```
 
 ```
-curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-pods.sh | sudo bash
+curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-pods.sh | bash
 ```
 
 ### Installing kubernetes dashboard
@@ -38,7 +38,7 @@ curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-pods
 Executer les commandes avec un utilisateur qui à accès à ```kubectl```
 
 ```
-curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-dashboard.sh | sudo bash
+curl https://raw.githubusercontent.com/MinePlugins/minikube/master/minikube-dashboard.sh | bash
 ```
 
 ## Running the tests
